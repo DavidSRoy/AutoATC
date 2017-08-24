@@ -6,9 +6,9 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.BorderPane;
+
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+
 import javafx.scene.text.Text;
 
 
@@ -32,11 +32,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 //		try {
-
-		
 		B74 jumbo = new B74();
-		jumbo.setSpeed(500);
-		jumbo.turn(-110);
+		
+		
+
 		Text speed = new Text(String.valueOf(jumbo.getSpeed()));
 		Text heading = new Text(String.valueOf(jumbo.getHeading()));
 		//String.valueOf(jumbo.getSpeed())
@@ -44,7 +43,7 @@ public class Main extends Application {
 		grid.add(speed, 0, 1);*/
 		
 		this.canvas = new Canvas(200,200);
-		
+		this.runnerThread.start();
 		
 		
 		GridPane grid = new GridPane();
@@ -93,6 +92,11 @@ public class Main extends Application {
 	
 	public void refresh() {
 		this.atc.draw(canvas);
+	}
+	
+	public void stop() throws Exception {
+		this.runner.stop();
+		this.runnerThread.join(500);
 	}
 	
 	

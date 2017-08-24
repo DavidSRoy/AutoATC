@@ -15,6 +15,7 @@ public class ATCRunner implements Runnable {
 	
 	public void run() {
 		while (!this.stop) {
+			
 			this.simulator.update();
 			this.mechanism.update();
 			this.controller.refresh();
