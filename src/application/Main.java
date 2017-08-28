@@ -1,5 +1,6 @@
 package application;
 	
+import application.aircraft.B74;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -32,17 +33,19 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 //		try {
-		B74 jumbo = new B74();
+		B74 jumbo = new B74("JUMB0");
 		
 		
 
 		Text speed = new Text(String.valueOf(jumbo.getSpeed()));
 		Text heading = new Text(String.valueOf(jumbo.getHeading()));
+		/*String flight = ATCSimulator.flight;
+		Text flt = new Text(flight);*/
 		//String.valueOf(jumbo.getSpeed())
 		/*GridPane grid = new GridPane();
 		grid.add(speed, 0, 1);*/
 		
-		this.canvas = new Canvas(200,200);
+		this.canvas = new Canvas(400,400);
 		this.runnerThread.start();
 		
 		
@@ -57,6 +60,7 @@ public class Main extends Application {
 		
 		grid.add(heading, 0, rowCount++, 2, 1);
 		grid.add(speed, 0, rowCount++, 2, 1);
+		//grid.add(flt, rowCount++, 2);
 		grid.add(this.canvas, 2, 0, 2, rowCount);
 		
 		
@@ -70,7 +74,7 @@ public class Main extends Application {
 		
 		
 		
-		Scene scene = new Scene(grid ,400,400);
+		Scene scene = new Scene(grid ,800,800);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());			
 		primaryStage.setTitle("AutoATC");		
 		primaryStage.setScene(scene);

@@ -1,14 +1,14 @@
-package application;
+package application.aircraft;
 
 public class Aircraft {
 	public int maxSpeed;
 	public int speed;
 	public int heading;
+	public static String callsign;
 	
 	
-	
-	public Aircraft() {
-		
+	public Aircraft(String callsign) {
+		Aircraft.callsign = callsign;
 		
 	}
 	
