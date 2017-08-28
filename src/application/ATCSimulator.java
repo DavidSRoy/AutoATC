@@ -22,12 +22,17 @@ public class ATCSimulator implements IRealWorldSimulator {
 	
 	
 	public void addAircraft() {
-		while (airspaceFreq < 10) {
+		
+		if (airspaceFreq < 10) {
 			int i = (int) Math.floor(Math.random() * 1);
 			if (i == 0) {
 				new B74(flight);
+				airspaceFreq++;
+				
+				
 			} else {
 				new Aircraft(flight);
+				airspaceFreq++;
 			}
 		}
 	}
@@ -52,8 +57,19 @@ public class ATCSimulator implements IRealWorldSimulator {
         
         
         
-		gc.setFill(Color.RED);
-		gc.fillRect(0, 0, 5, 5);
+        gc.setFill(Color.RED);
+        int z = 0;
+        if (airspaceFreq < 10) {
+			
+        	new B74(flight);
+			airspaceFreq++;
+			int x = (int) Math.floor(Math.random() * 50);
+			gc.fillRect(x, 0, 5, 5);
+				
+		}
+        
+		
+		
 		
 		
 	}
