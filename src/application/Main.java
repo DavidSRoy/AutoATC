@@ -39,8 +39,12 @@ public class Main extends Application {
 
 		Text speed = new Text(String.valueOf(jumbo.getSpeed()));
 		Text heading = new Text(String.valueOf(jumbo.getHeading()));
-		/*String flight = ATCSimulator.flight;
-		Text flt = new Text(flight);*/
+		
+		Text flt = new Text(ATCSimulator.callsigns());
+		Text flt2 = new Text(ATCSimulator.callsigns());
+		Text flt3 = new Text(ATCSimulator.callsigns());
+		Text flt4 = new Text(ATCSimulator.callsigns());
+		
 		//String.valueOf(jumbo.getSpeed())
 		/*GridPane grid = new GridPane();
 		grid.add(speed, 0, 1);*/
@@ -60,7 +64,10 @@ public class Main extends Application {
 		
 		grid.add(heading, 0, rowCount++, 2, 1);
 		grid.add(speed, 0, rowCount++, 2, 1);
-		//grid.add(flt, rowCount++, 2);
+		grid.add(flt, rowCount++, 2);
+		grid.add(flt2, rowCount++, 2);
+		grid.add(flt3, rowCount++, 3);
+		grid.add(flt4, rowCount++, 3);
 		grid.add(this.canvas, 2, 0, 2, rowCount);
 		
 		

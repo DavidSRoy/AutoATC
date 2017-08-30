@@ -11,17 +11,23 @@ public class ATCSimulator implements IRealWorldSimulator {
 	int width = 10;
     int height = 10;
     public static String[] callsigns = {"AAL","ASA","DAL", "KAL", "SWA", "UAL", "WJA"};
-    public static int airspaceFreq = 0;
+    int airspaceFreq = 0;
 	public B74 bigJet = new B74("XXX001");
 	
+
 	
-	
-	public static String flight = callsigns[(int) Math.floor(Math.random() * callsigns.length)] + (int)Math.floor(Math.random() *1000);
+	public static String callsigns() {
+		String flight = callsigns[(int) Math.floor(Math.random() * callsigns.length)] + (int)Math.floor(Math.random() *1000);
+		return flight;
+	}
 	
     
 	
 	
-	public void addAircraft() {
+	
+	
+	
+	/*public void addAircraft() {
 		
 		if (airspaceFreq < 10) {
 			int i = (int) Math.floor(Math.random() * 1);
@@ -35,18 +41,25 @@ public class ATCSimulator implements IRealWorldSimulator {
 				airspaceFreq++;
 			}
 		}
-	}
+	}*/
 
 	@Override
 	public void update() {
-		
-		
 		
 		width++;
 		height++;
 		bigJet.setSpeed(300);
 	}
-
+	
+	@SuppressWarnings("static-access")
+	public void addAircraft() {
+		new B74(this.callsigns());
+		
+	}
+	
+	int z = 0;
+	
+	
 	@Override
 	public void draw(Canvas canvas) {
 		double canvasHeight = canvas.getHeight();
@@ -57,19 +70,20 @@ public class ATCSimulator implements IRealWorldSimulator {
         
         
         
+        
         gc.setFill(Color.RED);
-        int z = 0;
-        if (airspaceFreq < 10) {
+        
+        /*if (airspaceFreq < 10) {
 			
         	new B74(flight);
-			airspaceFreq++;
+        	airspaceFreq++;
 			int x = (int) Math.floor(Math.random() * 50);
 			gc.fillRect(x, 0, 5, 5);
 				
-		}
+		} else {
+			flight = "error";
+		}*/
         
-		
-		
 		
 		
 	}
